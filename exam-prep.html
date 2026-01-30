@@ -1,0 +1,1650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Favicon (root icons take priority) -->
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <meta name="msapplication-TileImage" content="/favicon-32.png">
+  <!-- Backwards-compatible image reference -->
+  <link rel="icon" href="images/gs-logo.png" sizes="any">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exam Photo Resize Tool | SSC UPSC Railway Bank Form Photo | GS DocSeva</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Free Government Exam Photo Tool - India, USA, UK, Canada, Australia. Prepare photos for SSC, UPSC, Railway, Bank, PSC, civil service exams. Auto-resize photos & signatures to official dimensions. No upload, 100% private. International support.">
+  <meta name="keywords" content="SSC photo resize, UPSC photo size, railway exam photo, bank exam photo, BPSC photo resize, government exam form photo, signature resize, exam document preparation, form photo maker, Bihar SSC photo, passport photo resize, exam photo tool">
+  <meta name="author" content="GS DocSeva">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://resizegovform.netlify.app/exam-prep.html">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Free Exam Photo Resize Tool | SSC UPSC Railway Bank Forms">
+  <meta property="og:description" content="Resize exam photos & signatures to official specs for SSC, UPSC, Railway, Bank forms. Instant, secure, free. No upload needed.">
+  <meta property="og:url" content="https://resizegovform.netlify.app/exam-prep.html">
+  <meta property="og:site_name" content="GS DocSeva">
+  <meta property="og:image" content="https://resizegovform.netlify.app/images/og-exam-prep.jpg">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free Exam Photo Resize Tool | SSC UPSC Railway Bank">
+  <meta name="twitter:description" content="Resize exam photos instantly to official dimensions. SSC, UPSC, Railway, Bank, Police exam forms supported.">
+  <meta name="twitter:image" content="https://resizegovform.netlify.app/images/og-exam-prep.jpg">
+  
+  <!-- Structured Data / Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "GS DocSeva - Exam Photo Resize Tool",
+    "description": "Free tool to resize photos and signatures for government exam forms (SSC, UPSC, Railway, Bank, BPSC, Police). Instant resizing to official dimensions and KB size.",
+    "url": "https://resizegovform.netlify.app/exam-prep.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "INR"
+    },
+    "featureList": [
+      "SSC photo resize (200x230px, 20-50KB)",
+      "UPSC photo resize (200x225px, 20-300KB)",
+      "Railway exam photo resize (150x200px, 20-50KB)",
+      "Bank exam photo resize (150x200px, 20-50KB)",
+      "BPSC photo resize (150x200px, 20-50KB)",
+      "Signature resize for all exams",
+      "Instant processing in browser",
+      "No upload required - 100% private"
+    ],
+    "keywords": "SSC photo resize, UPSC photo, Railway exam photo, Bank exam photo, BPSC photo, exam form photo tool, signature resize, government exam document",
+    "inLanguage": ["en", "hi"],
+    "audience": {
+      "@type": "Audience",
+      "audienceType": "Government exam aspirants in India"
+    }
+  }
+  </script>
+  
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E8MTS8MTDT"></script>
+  <script src="helpers.js"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-E8MTS8MTDT');
+  </script>
+  
+  <link rel="stylesheet" href="style.min.css">
+  <style>
+    body {
+      background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #f0f9ff 100%);
+      min-height: 100vh;
+    }
+
+    .exam-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .exam-section {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .exam-section h2 {
+      color: #333;
+      margin-bottom: 20px;
+      font-size: 22px;
+    }
+
+    .exam-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+
+    .exam-btn {
+      padding: 20px;
+      border: 2px solid #e0e0e0;
+      background: white;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.3s;
+      color: #333;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    .exam-btn:hover {
+      border-color: #667eea;
+      background: #f8f9ff;
+    }
+
+    .exam-btn.active {
+      background: #667eea;
+      color: white;
+      border-color: #667eea;
+      transform: scale(1.05);
+    }
+
+    .exam-logo {
+      width: 70px;
+      height: 70px;
+      margin: 0 auto 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 15px;
+      font-size: 35px;
+      background: white;
+      border: 2px solid #e0e0e0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+    }
+
+    .exam-btn:hover .exam-logo {
+      transform: scale(1.1);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      border-color: #667eea;
+    }
+
+    .exam-btn.active .exam-logo {
+      box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+      transform: scale(1.05);
+      border-color: #667eea;
+    }
+
+    .exam-info {
+      background: #f0f4ff;
+      padding: 20px;
+      border-radius: 10px;
+      border-left: 4px solid #667eea;
+      margin-bottom: 20px;
+    }
+
+    .exam-info h3 {
+      color: #667eea;
+      margin-bottom: 10px;
+      margin-top: 0;
+    }
+
+    .exam-info p {
+      color: #333;
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .upload-area {
+      border: 2px dashed #667eea;
+      padding: 40px;
+      text-align: center;
+      border-radius: 10px;
+      background: #f0f4ff;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-bottom: 20px;
+    }
+
+    .upload-area:hover {
+      background: #e8ecff;
+      border-color: #4f46e5;
+    }
+
+    .upload-area input {
+      display: none;
+    }
+
+    .process-btn {
+      background: #667eea;
+      color: white;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+      margin: 20px 0;
+      transition: all 0.3s;
+      width: 100%;
+    }
+
+    .process-btn:hover {
+      background: #4f46e5;
+      transform: translateY(-2px);
+    }
+
+    .process-btn:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .reset-btn {
+      background: #666;
+      color: white;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      width: 100%;
+    }
+
+    .reset-btn:hover {
+      background: #555;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 20px;
+      color: #667eea;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .info-box {
+      background: #fff3cd;
+      padding: 15px;
+      border-radius: 8px;
+      border-left: 4px solid #ffc107;
+      margin-bottom: 20px;
+      color: #856404;
+      font-size: 14px;
+    }
+    .exam-search {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      font-size: 14px;
+      margin-bottom: 14px;
+    }
+
+    .micro-steps {
+      margin: 18px auto 16px;
+      max-width: 880px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+    }
+
+    .micro-step-card {
+      background: #e0f7fa;
+      border: 1.5px solid #0ea5e9;
+      border-radius: 14px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      box-shadow: 0 2px 8px rgba(14, 165, 233, 0.12);
+      transition: all 0.3s ease;
+    }
+
+    .micro-step-card:hover {
+      border-color: #06b6d4;
+      box-shadow: 0 4px 16px rgba(14, 165, 233, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .micro-step-badge {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #0ea5e9, #06b6d4);
+      color: white;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 18px rgba(6, 182, 212, 0.25);
+    }
+
+    .micro-step-text {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .micro-step-text h4 {
+      margin: 0;
+      font-size: 15px;
+      color: #0f172a;
+      font-weight: 800;
+    }
+
+    .micro-step-text p {
+      margin: 0;
+      font-size: 13px;
+      color: #0f172a;
+      line-height: 1.4;
+      font-weight: 500;
+    }
+
+    .options-panel {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px;
+      margin: 12px 0 4px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 12px 14px;
+    }
+
+    .options-panel label {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 13px;
+      color: #0f172a;
+      font-weight: 600;
+    }
+
+    .options-panel select {
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #cbd5e1;
+      font-size: 14px;
+    }
+
+    .privacy-note {
+      background: #ecfdf3;
+      border: 1px solid #bbf7d0;
+      color: #166534;
+      padding: 10px 12px;
+      border-radius: 10px;
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+
+    .spec-capsule {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: linear-gradient(120deg, #eef2ff, #e0f2fe);
+      color: #1e293b;
+      border: 1px solid #cbd5e1;
+      font-weight: 700;
+      font-size: 13px;
+      margin-top: 8px;
+    }
+
+    .spec-card {
+      border: 1px solid #e2e8f0;
+      border-left: 3px solid #667eea;
+      padding: 12px;
+      border-radius: 12px;
+      background: #ffffff;
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    }
+
+    .spec-title {
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+    }
+
+    .spec-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 13px;
+      color: #475569;
+      padding: 4px 0;
+      border-bottom: 1px dashed #e2e8f0;
+    }
+
+    .spec-meta:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .spec-meta span {
+      color: #64748b;
+    }
+
+    .spec-meta strong {
+      color: #0f172a;
+      letter-spacing: 0.2px;
+    }
+  </style>
+  <style>
+    /* Overrides to match global site visuals */
+    body { background: var(--bg, #f7fafc); }
+    .nav-container { height: 96px; }
+    .nav-logo { height: 110px; max-width: 520px; }
+    .exam-container { max-width: 1100px; padding: 26px; }
+    .exam-section { box-shadow: 0 8px 26px rgba(15,23,42,0.06); border-radius: 12px; }
+    .upload-area { border: 2px dashed #cbd5e1; background: #fff; padding: 28px; border-radius: 12px; }
+    .exam-btn { border-radius: 12px; border: 1px solid #e6e7ef; box-shadow: 0 6px 18px rgba(15,23,42,0.04); }
+    .exam-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(79,70,229,0.08); }
+    .exam-btn.active { transform: none; box-shadow: 0 10px 30px rgba(79,70,229,0.12); }
+    .process-btn { background: linear-gradient(135deg,var(--accent,#4f46e5),var(--accent-2,#06b6d4)); border-radius: 12px; box-shadow: 0 12px 36px rgba(79,70,229,0.08); }
+    .process-btn:disabled { background: #d1d5db; }
+    .spec-card { border-left-color: var(--accent,#4f46e5); }
+    @media (max-width: 900px) {
+      .nav-container { height: 72px; }
+      .nav-logo { height: 72px; }
+      .exam-container { padding: 14px; }
+      .upload-area { padding: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav>
+  <div class="nav-container">
+      <a href="index.html" class="nav-brand">
+      <img src="images/gs-logo-horizontal.png" alt="" class="nav-logo" onerror="this.style.display='none'">
+    </a>
+    <button class="nav-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="exam-prep.html" class="active">Exam Prep</a></li>
+      <li><a href="resize.html">Resize</a></li>
+      <li><a href="remove-bg.html">Remove BG</a></li>
+      <li><a href="convert.html">Convert</a></li>
+      <li><a href="privacy-policy.html">Privacy</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Maintenance notice removed -->
+
+  <div class="exam-container">
+    <div style="background: white; padding: 18px; border: 2px solid #f59e0b; border-radius: 10px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);">
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+        <span style="font-size: 28px;">🎯</span>
+        <strong style="font-size: 17px; color: #1e293b;">All the Best for Your Exam!</strong>
+      </div>
+      <p style="margin: 0; color: #475569; font-size: 14px; line-height: 1.7;">
+        जब लोग तुम्हारे सपने पर हंसें, समझ लेना तुम सही दिशा में चल रहे हो! 💪🌟<br>
+        <span style="opacity: 0.95; font-size: 13px; margin-top: 4px; display: inline-block;">
+          When people laugh at your dreams, understand you're moving in the right direction. Keep going! 🚀
+        </span>
+      </p>
+    </div>
+    <div style="background:#eef7ff;padding:12px;border-left:4px solid #667eea;border-radius:8px;margin-bottom:12px;color:#123;">
+      <strong>Quick Help:</strong> Upload any image format (JPG/PNG/GIF/BMP). Photos and signatures will be converted to JPG and resized to the selected exam's official dimensions. For signatures, use blue/black pen on white paper and scan/photograph clearly.
+    </div>
+    <div class="privacy-note">Processing stays in your browser. Nothing is uploaded.</div>
+    <div class="micro-steps" aria-label="How to resize in three steps">
+      <div class="micro-step-card">
+        <div class="micro-step-badge">1</div>
+        <div class="micro-step-text">
+          <h4>Upload your photo</h4>
+          <p>Click upload or drag-drop. Works offline, nothing leaves your device.</p>
+        </div>
+      </div>
+      <div class="micro-step-card">
+        <div class="micro-step-badge">2</div>
+        <div class="micro-step-text">
+          <h4>Pick the preset</h4>
+          <p>Select SSC, UPSC, RRB, or Bank sizes for instant official specs.</p>
+        </div>
+      </div>
+      <div class="micro-step-card">
+        <div class="micro-step-badge">3</div>
+        <div class="micro-step-text">
+          <h4>Download & attach</h4>
+          <p>Get the exact KB output and add it to your exam form with confidence.</p>
+        </div>
+      </div>
+    </div>
+    <!-- Step 1: Exam Selection -->
+    <div class="exam-section">
+      <h2>📋 Step 1: Select Your Exam to Resize Documents</h2>
+      <p style="color: #64748b; font-size: 14px; margin-top: 8px; margin-bottom: 15px;">
+        Choose your government exam below. We'll automatically resize your photo and signature to official requirements.
+      </p>
+      <div>
+        <input id="examSearch" class="exam-search" type="search" placeholder="Search exams (e.g., 'bihar', 'police', 'dled')" oninput="filterExams(this.value)">
+      </div>
+      <div class="exam-grid" id="examGrid"></div>
+    </div>
+
+    <!-- Exam Info -->
+    <div class="exam-section" id="examInfoSection" style="display: none;">
+      <div class="exam-info">
+        <h3 id="examName"></h3>
+        <p id="examDetails"></p>
+        <div id="examSpecCapsule" class="spec-capsule" style="display:none;">
+          <span>📏 Official specs loaded</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 2: Upload Documents -->
+    <div class="exam-section" id="uploadSection" style="display: none;">
+      <h2>Step 2: Upload Required Documents</h2>
+      <div class="options-panel" aria-label="Output options">
+        <label>Output format
+          <select id="outputFormat">
+            <option value="image/jpeg">JPG (smaller size, recommended)</option>
+            <option value="image/png">PNG (keeps transparency)</option>
+          </select>
+        </label>
+        <label>Background
+          <select id="backgroundChoice">
+            <option value="auto">Keep original</option>
+            <option value="white">White background</option>
+            <option value="blue">Blue background</option>
+          </select>
+        </label>
+      </div>
+      
+      <div class="info-box">
+        💡 Upload all required documents. Files will be automatically resized to exam specifications.
+      </div>
+
+      <div id="uploadFieldsContainer" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 20px;">
+      </div>
+    </div>
+
+    <!-- Step 3: Process -->
+    <div class="exam-section" id="processSection" style="display: none;">
+      <h2>Step 3: Download Resized Files</h2>
+      <div id="downloadButtons" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 15px;">
+      </div>
+      <button class="process-btn" style="margin: 0 0 10px;" onclick="downloadAll()">Download All</button>
+      <button class="reset-btn" onclick="resetForm()">Reset</button>
+      <div id="result"></div>
+    </div>
+
+    <a href="index.html" class="back-link">← Back to Home</a>
+  </div>
+
+  <div class="exam-section" style="margin: 20px auto; max-width: 900px;">
+    <h2>Quick FAQs</h2>
+    <div style="display:grid;gap:10px;">
+      <details open>
+        <summary style="font-weight:700;color:#0f172a;">What formats do you support?</summary>
+        <p style="margin:8px 0 0;color:#475569;font-size:14px;">Upload JPG/PNG/GIF/BMP. Outputs default to JPG for smaller size; switch to PNG if you need transparency.</p>
+      </details>
+      <details>
+        <summary style="font-weight:700;color:#0f172a;">How do you keep KB within limits?</summary>
+        <p style="margin:8px 0 0;color:#475569;font-size:14px;">We resize to exact pixels, then adjust quality to land in the official KB range. If your source is tiny, we warn that quality may drop.</p>
+      </details>
+      <details>
+        <summary style="font-weight:700;color:#0f172a;">Can I change background?</summary>
+        <p style="margin:8px 0 0;color:#475569;font-size:14px;">Use the Background option to force white or blue. Leave it on “Keep original” to retain your photo’s background.</p>
+      </details>
+      <details>
+        <summary style="font-weight:700;color:#0f172a;">Is my data private?</summary>
+        <p style="margin:8px 0 0;color:#475569;font-size:14px;">Yes—processing stays in your browser. Nothing is uploaded.</p>
+      </details>
+    </div>
+  </div>
+
+  <!-- SEO Content Section -->
+  <div style="background: #f9fafb; padding: 40px 20px; margin-top: 50px; border-top: 1px solid #e5e7eb;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <div style="display: none;"><!-- SEO Keywords for International Search -->
+        government exam photo preparation, SSC photo resize, UPSC photo requirements, railway exam photo, bank exam photo, 
+        competitive exam photo tool, civil services photo, public sector exam photo, PSC photo preparation, 
+        SSC CGL photo, UPSC CSE photo, RRB photo, IBPS photo, SBI PO photo, state PSC photo, 
+        exam form photo ready, application form photo, recruitment photo guidelines, 
+        admit card photo, registration photo, online form photo, exam portal photo upload, 
+        photo specifications exam, exam photo size, exam photo background, exam photo format, 
+        USA civil service photo, UK government exam, Canada public service, Australia gov exam, India competitive exam, 
+        international exam photo, worldwide exam preparation, global exam photo tool, 
+        सरकारी परीक्षा फोटो तैयार करें, SSC फोटो रिसाइज, UPSC फोटो साइज़, रेलवे परीक्षा फोटो, बैंक परीक्षा फोटो, 
+        प्रतियोगी परीक्षा फोटो, परीक्षा फॉर्म फोटो, आवेदन पत्र फोटो, भर्ती फोटो तैयार करें
+      </div>
+      
+      <h2 style="font-size: 20px; font-weight: 700; color: #1f2937; text-align: center; margin-bottom: 20px;">Government Exam Photo Preparation Tool</h2>
+      <p style="font-size: 13px; color: #64748b; text-align: center; max-width: 800px; margin: 0 auto 30px; line-height: 1.6;">
+        Prepare photos for government and competitive exams worldwide. Used in India (SSC, UPSC, Railway, Bank, PSC), USA, UK, Canada, Australia for civil service exams, recruitment applications, and official registrations.
+      </p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 30px;">
+        <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid #e5e7eb;">
+          <h3 style="font-size: 14px; font-weight: 700; color: #1f2937; margin: 0 0 8px 0;">📋 All Exam Requirements</h3>
+          <p style="font-size: 12px; color: #64748b; margin: 0; line-height: 1.5;">SSC, UPSC, Railway, Bank, PSC, Civil Services, Public Sector. Automatic photo preparation meeting all specifications - size, background, format.</p>
+        </div>
+        <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid #e5e7eb;">
+          <h3 style="font-size: 14px; font-weight: 700; color: #1f2937; margin: 0 0 8px 0;">🌍 Global Exam Support</h3>
+          <p style="font-size: 12px; color: #64748b; margin: 0; line-height: 1.5;">India, USA, UK, Canada, Australia, Middle East, Europe. Supports government exams and recruitment processes worldwide.</p>
+        </div>
+        <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid #e5e7eb;">
+          <h3 style="font-size: 14px; font-weight: 700; color: #1f2937; margin: 0 0 8px 0;">⚡ One-Click Ready</h3>
+          <p style="font-size: 12px; color: #64748b; margin: 0; line-height: 1.5;">Upload once, get photo and signature both ready. Free, instant, unlimited use. No technical knowledge needed.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Schema Markup for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Government Exam Photo Preparation",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0"
+    },
+    "featureList": "SSC photo preparation, UPSC photo resize, Railway exam photo, Bank exam photo, PSC photo, Exam form photo ready, Photo and signature together, Automatic processing, Free forever",
+    "countriesSupported": "IN, US, GB, CA, AU, NZ, SG, AE, SA",
+    "educationalUse": "Government exam preparation, Competitive exam application, Civil service recruitment, Public sector job application"
+  }
+  </script>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <p><strong>GS DocSeva</strong> — Free Government Exam Document Preparation Suite</p>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-of-service.html">Terms of Service</a>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="footer-bottom">
+        <p>© 2025 GS DocSeva. All rights reserved. | Your documents stay completely private</p>
+      </div>
+    </div>
+  </footer>
+  
+  <div style="text-align: center; padding: 20px; background: white;">
+    <p style="margin: 0; font-size: 16px; color: #333;">
+
+    </p>
+  </div>
+
+  <script>
+    const examData = {
+      ssc: {
+        name: 'SSC CGL/CHSL',
+        icon: '📝',
+        logo: 'images/logos/ssc.png',
+        logoFallback: '📝',
+        color: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+        requirements: {
+          photo: { width: 200, height: 230, label: 'Photo', official: '3.5cm x 4.5cm', size: '20-50 KB' },
+          signature: { width: 140, height: 60, label: 'Signature', official: '4cm x 2cm', size: '10-20 KB' }
+        },
+        description: 'SSC Combined Graduate Level & CHSL exam photo and signature requirements. Photo: Light background (white preferred), recent 3 months. Signature: Black pen on white paper.'
+      },
+      biharssc: {
+        name: 'Bihar SSC',
+        icon: '📋',
+        logo: 'images/logos/bihar-ssc.png',
+        logoFallback: '📋',
+        color: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+        requirements: {
+          photo: { width: 150, height: 200, label: 'Photo', official: '4cm x 6cm', size: '20-50 KB' },
+          signature_english: { width: 140, height: 60, label: 'Signature (English)', official: '3.5cm x 1.5cm', size: '10-20 KB' },
+          signature_hindi: { width: 140, height: 60, label: 'Signature (Hindi)', official: '3.5cm x 1.5cm', size: '10-20 KB' },
+          left_thumb: { width: 100, height: 100, label: 'Left Thumb Impression', official: '2.5cm x 2.5cm', size: '10-20 KB' },
+          right_thumb: { width: 100, height: 100, label: 'Right Thumb Impression', official: '2.5cm x 2.5cm', size: '10-20 KB' }
+        },
+        description: 'Bihar SSC exam - Photo, English & Hindi signatures, and thumb impressions required.'
+      },
+      rrb: {
+        name: 'RRB Railway',
+        icon: '🚂',
+        logo: 'images/logos/railway.png',
+        logoFallback: '🚂',
+        color: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+        requirements: {
+          photo: { width: 150, height: 200, label: 'Photo', official: '4cm x 6cm', size: '20-50 KB' },
+          signature: { width: 140, height: 60, label: 'Signature', official: '3.5cm x 1.5cm', size: '10-20 KB' },
+          thumb: { width: 100, height: 100, label: 'Thumb Impression', official: '2.5cm x 2.5cm', size: '10-20 KB' }
+        },
+        description: 'Indian Railway Recruitment Board - RRB NTPC, Group D specifications.'
+      },
+      upsc: {
+        name: 'UPSC IAS/IPS',
+        icon: '🏛️',
+        logo: 'images/logos/upsc.png',
+        logoFallback: '🏛️',
+        color: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
+        requirements: {
+          photo: { width: 200, height: 225, label: 'Photo', official: '4.5cm x 6cm', size: '20-300 KB' },
+          signature: { width: 140, height: 60, label: 'Signature', official: '3.5cm x 1.5cm', size: '10-20 KB' }
+        },
+        description: 'UPSC Civil Services (IAS, IPS, IFS) photo and signature requirements.'
+      },
+      bpsc: {
+        name: 'BPSC Bihar',
+        icon: '🎓',
+        logo: 'images/logos/bpsc.png',
+        logoFallback: '🎓',
+        color: 'linear-gradient(135deg, #30cfd0 0%, #330867 100%)',
+        requirements: {
+          photo: { width: 150, height: 200, label: 'Photo', official: '4cm x 6cm', size: '20-50 KB' },
+          signature: { width: 140, height: 60, label: 'Signature', official: '3.5cm x 1.5cm', size: '10-20 KB' }
+        },
+        description: 'Bihar Public Service Commission exam specifications.'
+      },
+      bihar: {
+        name: 'Bihar Police',
+        icon: '👮',
+        logo: 'images/logos/biharpolice.png',
+        logoFallback: '👮',
+        color: 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)',
+        requirements: {
+          photo: { width: 150, height: 200, label: 'Photo', official: '4cm x 6cm', size: '20-50 KB' },
+          signature: { width: 140, height: 60, label: 'Signature', official: '3.5cm x 1.5cm', size: '10-20 KB' },
+          thumb: { width: 100, height: 100, label: 'Thumb Impression', official: '2.5cm x 2.5cm', size: '10-20 KB' }
+        },
+        description: 'Bihar Police Constable and SI recruitment photo requirements.'
+      },
+      bank: {
+        name: 'Bank/IBPS',
+        icon: '🏦',
+        logo: 'images/logos/ibps.png',
+        logoFallback: '🏦',
+        color: 'linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)',
+        requirements: {
+          photo: { width: 150, height: 200, label: 'Photo', official: '4cm x 6cm', size: '20-50 KB' },
+          signature: { width: 140, height: 60, label: 'Signature', official: '3.5cm x 1.5cm', size: '10-20 KB' },
+          left_thumb: { width: 100, height: 100, label: 'Left Thumb', official: '2.5cm x 2.5cm', size: '20-50 KB' }
+        },
+        description: 'IBPS PO, Clerk, SBI and all banking exams specifications.'
+      },
+      upscnda: {
+        name: 'UPSC NDA/CDS',
+        icon: '🎖️',
+        logo: 'images/logos/upsc.png',
+        logoFallback: '🎖️',
+        color: 'linear-gradient(135deg, #ff6e7f 0%, #bfe9ff 100%)',
+        requirements: {
+          photo: { width: 150, height: 200, label: 'Photo', official: '4cm x 6cm', size: '20-300 KB' },
+          signature: { width: 140, height: 60, label: 'Signature', official: '3.5cm x 1.5cm', size: '10-20 KB' }
+        },
+        description: 'NDA (National Defence Academy) and CDS (Combined Defence Services) exam specifications.'
+      },
+      uppolice: {
+        name: 'UP Police (UPPRB)',
+        icon: '🚨',
+        logo: 'images/logos/uppolice.png',
+        logoFallback: '🚨',
+        color: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+        requirements: {
+          photo: { width: 150, height: 200, label: 'Photo', official: '4cm x 6cm', size: '20-50 KB' },
+          signature: { width: 140, height: 60, label: 'Signature', official: '3.5cm x 1.5cm', size: '10-20 KB' },
+          thumb: { width: 100, height: 100, label: 'Thumb Impression', official: '2.5cm x 2.5cm', size: '10-20 KB' }
+        },
+        description: 'UP Police SI, ASI, Constable and other recruitment exam specifications.'
+      },
+
+      upsssc: {
+        name: 'UPSSSC (UP)',
+        icon: '📚',
+        logo: 'images/logos/upsssc.png',
+        logoFallback: '📚',
+        color: 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)',
+        requirements: {
+          photo: { width: 150, height: 200, label: 'Photo', official: '4cm x 6cm', size: '20-50 KB' },
+          signature: { width: 140, height: 60, label: 'Signature', official: '3.5cm x 1.5cm', size: '10-20 KB' }
+        },
+        description: 'UP Subordinate Staff Selection Commission exam specifications.'
+      },
+      delhibpolice: {
+        name: 'Delhi Police',
+        icon: '🚔',
+        logo: 'images/logos/delhipolice.png',
+        logoFallback: '🚔',
+        color: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+        requirements: {
+          photo: { width: 150, height: 200, label: 'Photo', official: '4cm x 6cm', size: '20-50 KB' },
+          signature: { width: 140, height: 60, label: 'Signature', official: '3.5cm x 1.5cm', size: '10-20 KB' },
+          thumb: { width: 100, height: 100, label: 'Thumb Impression', official: '2.5cm x 2.5cm', size: '10-20 KB' }
+        },
+        description: 'Delhi Police Constable, SI and other recruitment exam specifications.'
+      },
+      kvsnvs: {
+        name: 'KVS/NVS Teaching',
+        icon: '🎓',
+        logo: 'images/logos/navodyakvs.png',
+        logoFallback: '🎓',
+        color: 'linear-gradient(135deg, #ffd89b 0%, #19547b 100%)',
+        requirements: {
+          photo: { width: 150, height: 200, label: 'Photo', official: '4cm x 6cm', size: '20-50 KB' },
+          signature: { width: 140, height: 60, label: 'Signature', official: '3.5cm x 1.5cm', size: '10-20 KB' }
+        },
+        description: 'Kendriya Vidyalaya & Navodaya Vidyalaya teaching position exam specifications.'
+      },
+      mpsb: {
+        name: 'MPSB Police',
+        icon: '🛡️',
+        logo: '🛡️',
+        color: 'linear-gradient(135deg, #30cfd0 0%, #330867 100%)',
+        requirements: {
+          photo: { width: 150, height: 200, label: 'Photo', official: '4cm x 6cm', size: '20-50 KB' },
+          signature: { width: 140, height: 60, label: 'Signature', official: '3.5cm x 1.5cm', size: '10-20 KB' }
+        },
+        description: 'Madhya Pradesh Police Selection Board exam specifications.'
+      },
+
+      oicl: {
+        name: 'OICL/Insurance',
+        icon: '💼',
+        logo: 'images/logos/iocl.png',
+        logoFallback: '💼',
+        color: 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)',
+        requirements: {
+          photo: { width: 150, height: 200, label: 'Photo', official: '4cm x 6cm', size: '20-50 KB' },
+          signature: { width: 140, height: 60, label: 'Signature', official: '3.5cm x 1.5cm', size: '10-20 KB' }
+        },
+        description: 'Oriental Insurance, OICL and other insurance company recruitment exam specifications.'
+      },
+      jpsc: {
+        name: 'JPSC (Jharkhand)',
+        icon: '📜',
+        logo: 'images/logos/jharkhand.png',
+        logoFallback: '📜',
+        color: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+        requirements: {
+          photo: { width: 150, height: 200, label: 'Photo', official: '4cm x 6cm', size: '20-50 KB' },
+          signature: { width: 140, height: 60, label: 'Signature', official: '3.5cm x 1.5cm', size: '10-20 KB' }
+        },
+        description: 'Jharkhand Public Service Commission civil services exam specifications.'
+      }
+      ,
+        bihar_dled: {
+          name: 'Bihar D.El.Ed (DLED)',
+          icon: '🎓',
+          logo: 'images/logos/bihar-ssc.png',
+          logoFallback: '🎓',
+          color: 'linear-gradient(135deg, #f6d365 0%, #fda085 100%)',
+          requirements: {
+            photo: { width: 413, height: 531, label: 'Photo', official: '3.5cm x 4.5cm', size: '20-100 KB' },
+            signature: { width: 413, height: 354, label: 'Signature', official: '3.5cm x 3.0cm', size: '20-50 KB' }
+          },
+          description: 'Bihar D.El.Ed (DLED) application photo and signature requirements. Pixels set for 300 DPI (413×531 for photo, 413×354 for signature). Recent photo with light/white background recommended.'
+        }
+      };
+
+    let selectedExam = null;
+    let uploadedFiles = {};
+    
+    // Use JavaScript processing (no Python API needed)
+    const USE_PYTHON_API = false;
+
+    function initExamSelector() {
+      renderExamGrid();
+    }
+
+    function renderExamGrid(filter = '') {
+      const grid = document.getElementById('examGrid');
+      grid.innerHTML = '';
+      const q = (filter || '').trim().toLowerCase();
+      Object.keys(examData).forEach(key => {
+        const data = examData[key];
+        const hay = (key + ' ' + (data.name||'') + ' ' + (data.description||'') + ' ' + (data.icon||'') + ' ' + (data.logo||'')).toLowerCase();
+        if (q && !hay.includes(q)) return; // skip non-matching
+        const btn = document.createElement('button');
+        btn.className = 'exam-btn';
+
+        const logoDiv = document.createElement('div');
+        logoDiv.className = 'exam-logo';
+        
+        if (data.logo && typeof data.logo === 'string' && data.logo.includes('.png')) {
+          // Try to load image
+          const img = document.createElement('img');
+          img.src = data.logo;
+          img.alt = data.name;
+          img.style.cssText = 'width: 100%; height: 100%; object-fit: contain; padding: 8px;';
+          
+          // Fallback to emoji on image load error
+          img.onerror = function() {
+            img.style.display = 'none';
+            const emoji = document.createElement('div');
+            emoji.style.fontSize = '35px';
+            emoji.textContent = data.logoFallback || data.icon || '📋';
+            this.parentNode.appendChild(emoji);
+          };
+          
+          logoDiv.appendChild(img);
+        } else {
+          // Show emoji directly
+          const emoji = document.createElement('div');
+          emoji.style.fontSize = '35px';
+          emoji.textContent = data.icon || '📋';
+          logoDiv.appendChild(emoji);
+        }
+        
+        const nameDiv = document.createElement('div');
+        nameDiv.textContent = data.name;
+        
+        btn.appendChild(logoDiv);
+        btn.appendChild(nameDiv);
+        btn.onclick = () => selectExam(btn, key);
+        grid.appendChild(btn);
+      });
+    }
+
+    function filterExams(query) {
+      renderExamGrid(query);
+    }
+
+    function selectExam(btn, exam) {
+      document.querySelectorAll('.exam-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      selectedExam = exam;
+      uploadedFiles = {};
+      
+      const data = examData[exam];
+      document.getElementById('examName').innerHTML = `${data.icon} ${data.name}`;
+      
+      const specCount = Object.keys(data.requirements).length;
+      let requirementsHTML = `<p>${data.description}</p><details style="border:1px solid #e2e8f0; border-radius: 12px; padding: 12px 14px; background: #f8fafc; margin-top: 10px;">
+        <summary style="cursor:pointer; display:flex; align-items:center; gap:10px; font-weight:700; color:#0f172a; list-style:none;">
+          <span>📏 ${specCount} spec files set</span>
+          <span style="font-size: 13px; color: #475569;">${data.name}</span>
+          <span style="margin-left:auto; font-size:12px; color:#0ea5e9;">Toggle specs</span>
+        </summary>
+        <div style="margin-top: 12px; padding: 12px; background: white; border-radius: 10px; border: 1px solid #e2e8f0;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;">
+      `;
+      
+      Object.keys(data.requirements).forEach(key => {
+        const req = data.requirements[key];
+        const icon = key.includes('photo') ? '📸' : key.includes('signature') ? '✍️' : '👍';
+        requirementsHTML += `
+          <div class="spec-card">
+            <div class="spec-title">${icon} ${req.label}</div>
+            <div class="spec-meta"><span>Official</span><strong>${req.official}</strong></div>
+            <div class="spec-meta"><span>Pixels</span><strong>${req.width}×${req.height}px</strong></div>
+            <div class="spec-meta"><span>KB range</span><strong>${req.size}</strong></div>
+          </div>
+        `;
+      });
+      
+      requirementsHTML += '</div></div></details>';
+      document.getElementById('examDetails').innerHTML = requirementsHTML;
+      const capsule = document.getElementById('examSpecCapsule');
+      if (capsule) {
+        capsule.style.display = 'inline-flex';
+        capsule.textContent = `${Object.keys(data.requirements).length} spec files set | ${data.name}`;
+      }
+      
+      renderUploadFields(exam);
+      document.getElementById('examInfoSection').style.display = 'block';
+      document.getElementById('uploadSection').style.display = 'block';
+      document.getElementById('processSection').style.display = 'block';
+      setTimeout(() => document.getElementById('uploadSection')?.scrollIntoView({behavior:'smooth', block:'start'}), 120);
+    }
+
+    function renderUploadFields(exam) {
+      const data = examData[exam];
+      const container = document.getElementById('uploadFieldsContainer');
+      container.innerHTML = '';
+      
+      Object.keys(data.requirements).forEach(key => {
+        const req = data.requirements[key];
+        const fieldDiv = document.createElement('div');
+        fieldDiv.innerHTML = `
+          <h3 style="margin-bottom: 10px; color: #333; font-size: 16px;">${req.label}</h3>
+          <div class="upload-area upload-lower" onclick="document.getElementById('input_${key}').click()">
+            <p>📁 Click to upload</p>
+            <small>(JPG, PNG, GIF, BMP)</small>
+            <input type="file" id="input_${key}" accept="image/*" onchange="handleFileUpload('${key}', this)">
+          </div>
+          <img id="preview_${key}" style="display: none; width: 100%; max-width: 200px; margin-top: 10px; border-radius: 8px; border: 2px solid #667eea;">
+          <div id="info_${key}" style="display: none; margin-top: 10px; padding: 10px; background: #f0f4ff; border-radius: 6px; font-size: 13px; color: #333;"></div>
+        `;
+        container.appendChild(fieldDiv);
+      });
+    }
+
+    function handleFileUpload(key, input) {
+      const file = input.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(event) {
+          uploadedFiles[key] = event.target.result;
+          const img = new Image();
+          img.onload = function() {
+            document.getElementById('preview_' + key).src = event.target.result;
+            document.getElementById('preview_' + key).style.display = 'block';
+            
+            const sizeKB = (file.size / 1024).toFixed(2);
+            const req = examData[selectedExam]?.requirements?.[key];
+            const dimWarn = req && (img.width < req.width || img.height < req.height) ? '<br><span style="color:#b91c1c;">⚠️ Source is smaller than required; quality may drop.</span>' : '';
+            document.getElementById('info_' + key).innerHTML = `
+              <strong>📊 Original Details:</strong><br>
+              Size: ${sizeKB} KB<br>
+              Dimensions: ${img.width} x ${img.height} px<br>
+              Format: ${file.type.split('/')[1].toUpperCase()}${dimWarn}
+            `;
+            document.getElementById('info_' + key).style.display = 'block';
+            updateDownloadButtons();
+          };
+          img.src = event.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+
+    function updateDownloadButtons() {
+      const container = document.getElementById('downloadButtons');
+      container.innerHTML = '';
+      
+      const data = examData[selectedExam];
+      Object.keys(data.requirements).forEach(key => {
+        const req = data.requirements[key];
+        
+        // Create container for download and share buttons
+        const btnGroup = document.createElement('div');
+        btnGroup.style.display = 'grid';
+        btnGroup.style.gap = '8px';
+        
+        // Download button
+        const downloadBtn = document.createElement('button');
+        downloadBtn.className = 'process-btn';
+        downloadBtn.style.margin = '0';
+        downloadBtn.textContent = `📥 Download ${req.label}`;
+        downloadBtn.onclick = () => downloadFile(key);
+        if (!uploadedFiles[key]) {
+          downloadBtn.disabled = true;
+        }
+        btnGroup.appendChild(downloadBtn);
+        
+        // WhatsApp share button
+        const whatsappBtn = document.createElement('button');
+        whatsappBtn.className = 'process-btn';
+        whatsappBtn.style.margin = '0';
+        whatsappBtn.style.background = '#25D366';
+        whatsappBtn.textContent = `📱 Share`;
+        whatsappBtn.onclick = () => shareFileWhatsApp(key);
+        if (!uploadedFiles[key]) {
+          whatsappBtn.disabled = true;
+        }
+        btnGroup.appendChild(whatsappBtn);
+        
+        container.appendChild(btnGroup);
+      });
+    }
+
+    function resizeImage(imgSrc, width, height, maxQuality = 0.95, format = 'image/jpeg', backgroundChoice = 'auto') {
+      return new Promise((resolve) => {
+        const img = new Image();
+        img.onload = function() {
+          const canvas = document.createElement('canvas');
+          
+          // Set canvas to exact target dimensions
+          canvas.width = width;
+          canvas.height = height;
+          
+          const ctx = canvas.getContext('2d');
+          if (backgroundChoice === 'white') {
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(0, 0, width, height);
+          } else if (backgroundChoice === 'blue') {
+            ctx.fillStyle = '#d6e9ff';
+            ctx.fillRect(0, 0, width, height);
+          }
+          
+          // Use high-quality rendering
+          ctx.imageSmoothingEnabled = true;
+          ctx.imageSmoothingQuality = 'high';
+          
+          // Stretch image to fill entire canvas (no white padding)
+          ctx.drawImage(img, 0, 0, width, height);
+
+          canvas.toBlob(function(blob) {
+            resolve(blob);
+          }, format, format === 'image/jpeg' ? Math.max(maxQuality, 0.95) : undefined);
+        };
+        img.src = imgSrc;
+      });
+    }
+
+    async function downloadFile(key) {
+      if (!selectedExam || !uploadedFiles[key]) {
+        alert('Please upload file first');
+        return;
+      }
+
+      const data = examData[selectedExam];
+      const req = data.requirements[key];
+      const format = document.getElementById('outputFormat')?.value || 'image/jpeg';
+      const backgroundChoice = document.getElementById('backgroundChoice')?.value || 'auto';
+      
+      // Parse KB requirement first
+      const sizeMatch = req.size ? req.size.match(/(\d+)\s*[-–]\s*(\d+)/) : null;
+      const minKB = sizeMatch ? parseInt(sizeMatch[1]) : 0;
+      const maxKB = sizeMatch ? parseInt(sizeMatch[2]) : 999999;
+      const targetKB = Math.floor(minKB + (maxKB - minKB) * 0.65);
+      
+      showSpinner('Processing image...');
+      
+      try {
+        // Try to use Python API first for better results
+        const result = await processImageWithPythonAPI(uploadedFiles[key], targetKB, req.width, req.height, minKB, maxKB);
+        
+        if (result.success) {
+          // Got result from Python API
+          const blob = dataURLtoBlob(result.image);
+          const sizeKB = result.size_kb;
+          
+          // Download file
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          const ext = format === 'image/png' ? 'png' : 'jpg';
+          a.download = appendBrand(`${selectedExam}-${key}.${ext}`);
+          a.click();
+          
+          hideSpinner();
+          
+          document.getElementById('result').innerHTML = `
+            <p style="color: green; font-weight: bold; padding: 15px; background: #e8f5e9; border-radius: 8px; border-left: 4px solid #4caf50;">
+              ✓ ${req.label} downloaded successfully! 🎯 <strong>Best of Luck!</strong><br>
+              <span style="font-size: 13px; font-weight: normal;">
+                📊 Resized to: ${req.width}x${req.height}px | Size: ${sizeKB} KB | Format: JPG
+              </span><br>
+              <span style="font-size: 12px; color: #2e7d32; font-style: italic; margin-top: 8px; display: block;">
+                💪 आपकी मेहनत रंग लाएगी! All the best for your exam! 🌟
+              </span>
+            </p>
+          `;
+          return;
+        }
+      } catch (err) {
+        console.log('Python API not available, falling back to JavaScript processing:', err);
+      }
+      
+      // Fallback: Use JavaScript canvas processing
+      showSpinner('Processing image with JavaScript...');
+      
+      const img = await loadImage(uploadedFiles[key]);
+      const canvas = document.createElement('canvas');
+      canvas.width = req.width;
+      canvas.height = req.height;
+      const ctx = canvas.getContext('2d');
+      if (backgroundChoice === 'white') {
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, req.width, req.height);
+      } else if (backgroundChoice === 'blue') {
+        ctx.fillStyle = '#d6e9ff';
+        ctx.fillRect(0, 0, req.width, req.height);
+      }
+      
+      ctx.imageSmoothingEnabled = true;
+      ctx.imageSmoothingQuality = 'high';
+      ctx.drawImage(img, 0, 0, req.width, req.height);
+      
+      const encoder = format === 'image/png' ? 'image/png' : 'image/jpeg';
+      const maxQualityBlob = await new Promise(resolve => canvas.toBlob(resolve, encoder, encoder === 'image/jpeg' ? 0.98 : undefined));
+      const maxSizeKB = maxQualityBlob.size / 1024;
+      
+      let outBlob = maxQualityBlob;
+          
+      if (encoder === 'image/jpeg' && sizeMatch) {
+        if (maxSizeKB <= maxKB && maxSizeKB >= minKB) {
+          outBlob = maxQualityBlob;
+        } else if (maxSizeKB > maxKB) {
+          const res = await compressToTargetKB(canvas, targetKB, minKB, maxKB);
+          outBlob = res.blob;
+          outBlob = await ensureMinimumKB(canvas, outBlob, minKB, maxKB, req.width, req.height);
+        } else {
+          let currentBlob = await new Promise(resolve => canvas.toBlob(resolve, 'image/jpeg', 0.98));
+          currentBlob = await ensureMinimumKB(canvas, currentBlob, minKB, maxKB, req.width, req.height);
+          outBlob = currentBlob;
+        }
+      }
+      
+      if (encoder === 'image/png') {
+        outBlob = maxQualityBlob; // PNG not compressed by quality slider here
+      }
+      
+      hideSpinner();
+
+      const url = URL.createObjectURL(outBlob);
+      const a = document.createElement('a');
+      a.href = url;
+      const ext = encoder === 'image/png' ? 'png' : 'jpg';
+      a.download = appendBrand(`${selectedExam}-${key}.${ext}`);
+      a.click();
+
+      const sizeKB = (outBlob.size / 1024).toFixed(2);
+      document.getElementById('result').innerHTML = `
+        <p style="color: green; font-weight: bold; padding: 15px; background: #e8f5e9; border-radius: 8px; border-left: 4px solid #4caf50;">
+          ✓ ${req.label} downloaded successfully! 🎯 <strong>Best of Luck!</strong><br>
+          <span style="font-size: 13px; font-weight: normal;">
+            📊 Resized to: ${req.width}x${req.height}px | Size: ${sizeKB} KB | Format: ${ext.toUpperCase()}
+          </span><br>
+          <span style="font-size: 12px; color: #2e7d32; font-style: italic; margin-top: 8px; display: block;">
+            💪 आपकी मेहनत रंग लाएगी! All the best for your exam! 🌟
+          </span>
+        </p>
+      `;
+    }
+
+    async function getProcessedFile(key) {
+      const data = examData[selectedExam];
+      const req = data.requirements[key];
+      const format = document.getElementById('outputFormat')?.value || 'image/jpeg';
+      const ext = format === 'image/png' ? 'png' : 'jpg';
+
+      // Try Python API first
+      try {
+        const sizeMatch = req.size ? req.size.match(/(\d+)\s*[-–]\s*(\d+)/) : null;
+        const minKB = sizeMatch ? parseInt(sizeMatch[1]) : 0;
+        const maxKB = sizeMatch ? parseInt(sizeMatch[2]) : 999999;
+        const targetKB = Math.floor(minKB + (maxKB - minKB) * 0.65);
+        const result = await processImageWithPythonAPI(uploadedFiles[key], targetKB, req.width, req.height, minKB, maxKB);
+        if (result && result.success) {
+          const blob = dataURLtoBlob(result.image);
+          const fileName = appendBrand(`${selectedExam}-${key}.${ext}`);
+          return { blob, fileName };
+        }
+      } catch (e) {
+        console.log('Python API unavailable for', key, e);
+      }
+
+      // Fallback to JS processing
+      const dataURL = await fileToDataURL(uploadedFiles[key]);
+      const backgroundChoice = req.requiresWhiteBackground === true ? 'white' : (req.requiresWhiteBackground === false ? 'original' : 'auto');
+      const encoder = req.format === 'png' ? 'image/png' : 'image/jpeg';
+      const outBlob = await resizeImage(dataURL, req.width, req.height, req.quality || 0.92, encoder, backgroundChoice);
+      const fileName = appendBrand(`${selectedExam}-${key}.${ext}`);
+      return { blob: outBlob, fileName };
+    }
+
+    async function downloadAll() {
+      const data = examData[selectedExam];
+      if (!data) return;
+      const filesToShare = [];
+
+      for (const key of Object.keys(data.requirements)) {
+        if (uploadedFiles[key]) {
+          const processed = await getProcessedFile(key);
+          if (processed) filesToShare.push(processed);
+        }
+      }
+
+      if (filesToShare.length === 0) return;
+
+      // If platform supports sharing multiple files, use native share on mobile
+      try {
+        const fileObjs = filesToShare.map(f => new File([f.blob], f.fileName, { type: f.blob.type }));
+        if (navigator.canShare && navigator.canShare({ files: fileObjs })) {
+          await navigator.share({ files: fileObjs, title: `${selectedExam} - Prepared Files`, text: 'Here are my prepared exam files from GS DocSeva.' });
+          return;
+        }
+      } catch (err) {
+        console.log('Native share failed:', err);
+      }
+
+      // Fallback: trigger sequential downloads
+      for (const f of filesToShare) {
+        const url = URL.createObjectURL(f.blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = f.fileName;
+        a.click();
+        setTimeout(() => URL.revokeObjectURL(url), 1500);
+      }
+    }
+
+    // WhatsApp Share Function for Exam Prep
+    let processedFilesCache = {};
+
+    async function shareFileWhatsApp(key) {
+      const req = examData[selectedExam].requirements[key];
+      const originalFile = uploadedFiles[key];
+      if (!originalFile) {
+        alert('Please upload the file first!');
+        return;
+      }
+
+      showLoading(true);
+
+      const dataURL = await fileToDataURL(originalFile);
+      const backgroundChoice = req.requiresWhiteBackground === true ? 'white' : (req.requiresWhiteBackground === false ? 'original' : 'auto');
+      const encoder = req.format === 'png' ? 'image/png' : 'image/jpeg';
+      const outBlob = await resizeImage(dataURL, req.width, req.height, req.quality || 0.92, encoder, backgroundChoice);
+      
+      showLoading(false);
+
+      try {
+        const ext = encoder === 'image/png' ? 'png' : 'jpg';
+        const fileName = `${selectedExam}-${key}.${ext}`;
+        const file = new File([outBlob], fileName, { type: encoder });
+        
+        if (navigator.canShare && navigator.canShare({ files: [file] })) {
+          await navigator.share({
+            files: [file],
+            title: `${req.label} - ${selectedExam}`,
+            text: `Check out my ${req.label} for ${selectedExam} exam from GS DocSeva!`
+          });
+        } else {
+          // Fallback
+          const url = URL.createObjectURL(outBlob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = appendBrand(fileName);
+          a.click();
+          
+          const message = `I prepared my ${req.label} for ${selectedExam} using GS DocSeva! Check it out at https://resizegovform.netlify.app`;
+          const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
+          window.open(whatsappUrl, '_blank');
+        }
+      } catch (error) {
+        console.error('Share error:', error);
+        alert('Share failed. Please try downloading instead.');
+      }
+    }
+
+    function resetForm() {
+      uploadedFiles = {};
+      document.getElementById('uploadFieldsContainer').innerHTML = '';
+      document.getElementById('downloadButtons').innerHTML = '';
+      document.getElementById('result').innerHTML = '';
+      document.querySelectorAll('.exam-btn').forEach(b => b.classList.remove('active'));
+      selectedExam = null;
+      document.getElementById('examInfoSection').style.display = 'none';
+      document.getElementById('uploadSection').style.display = 'none';
+      document.getElementById('processSection').style.display = 'none';
+    }
+
+    // Helper: Call Python API for smart image processing
+    async function processImageWithPythonAPI(dataURL, targetKB, width, height, minKB, maxKB) {
+      try {
+        // Try multiple API endpoints
+        const endpoints = [
+          'https://gsforesize-api.onrender.com/api/smart-resize',
+          'http://localhost:5000/api/smart-resize',
+          'https://resize-api-production.up.railway.app/api/smart-resize'
+        ];
+        
+        for (const endpoint of endpoints) {
+          try {
+            const response = await fetch(endpoint, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                image: dataURL,
+                target_kb: targetKB,
+                width: width,
+                height: height,
+                min_kb: minKB,
+                max_kb: maxKB
+              })
+            });
+            
+            if (response.ok) {
+              return await response.json();
+            }
+          } catch (err) {
+            // Try next endpoint
+            continue;
+          }
+        }
+        
+        throw new Error('No API endpoint available');
+      } catch (err) {
+        console.log('API Error:', err.message);
+        throw err;
+      }
+    }
+    
+    // Helper: Convert data URL to Blob
+    function dataURLtoBlob(dataURL) {
+      const arr = dataURL.split(',');
+      const mime = arr[0].match(/:(.*?);/)[1];
+      const bstr = atob(arr[1]);
+      let n = bstr.length;
+      const u8arr = new Uint8Array(n);
+      while (n--) {
+        u8arr[n] = bstr.charCodeAt(n);
+      }
+      return new Blob([u8arr], { type: mime });
+    }
+    function showSpinner(message = 'Processing...') {
+      let s = document.getElementById('processingSpinner');
+      if (!s) {
+        s = document.createElement('div');
+        s.id = 'processingSpinner';
+        s.style = 'position:fixed; right:16px; bottom:16px; background:rgba(0,0,0,0.75); color:white; padding:10px 14px; border-radius:8px; display:flex; align-items:center; gap:10px; z-index:9999;';
+        s.innerHTML = '<div style="width:28px;height:28px;border:4px solid rgba(255,255,255,0.2);border-top:4px solid white;border-radius:50%;animation:spin 1s linear infinite"></div><div id="processingText">'+message+'</div>';
+        document.body.appendChild(s);
+        const style = document.createElement('style');
+        style.innerHTML = '@keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}';
+        document.head.appendChild(style);
+      } else {
+        document.getElementById('processingText').textContent = message;
+        s.style.display = 'flex';
+      }
+    }
+
+    function hideSpinner() {
+      const s = document.getElementById('processingSpinner');
+      if (s) s.style.display = 'none';
+    }
+
+    // Helper: load image from data URL
+    async function loadImage(dataURL) {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = () => resolve(img);
+        img.onerror = reject;
+        img.src = dataURL;
+      });
+    }
+
+    // Helper: convert Blob to Canvas
+    async function blobToCanvas(blob) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const img = new Image();
+          img.onload = () => {
+            const c = document.createElement('canvas');
+            c.width = img.width; c.height = img.height;
+            const ctx = c.getContext('2d');
+            ctx.drawImage(img, 0, 0);
+            resolve(c);
+          };
+          img.onerror = reject;
+          img.src = e.target.result;
+        };
+        reader.readAsDataURL(blob);
+      });
+    }
+
+    // Compress canvas to target KB within min-max range with QUALITY preservation
+    async function compressToTargetKB(canvas, targetKB, minKB, maxKB) {
+      const toBlob = (q) => new Promise(resolve => canvas.toBlob(resolve, 'image/jpeg', q));
+      const targetBytes = targetKB * 1024;
+      const minBytes = minKB * 1024;
+      const maxBytes = maxKB * 1024;
+      
+      // Start from HIGHEST quality (0.99) and only go down to 0.85 minimum - CRYSTAL CLEAR, NO BLUR
+      let low = 0.85, high = 0.99;
+      let bestBlob = await toBlob(high);
+      let bestQuality = high;
+      let bestDiff = Math.abs(bestBlob.size - targetBytes);
+      
+      // Binary search for optimal quality - prefer being in range over exact KB
+      for (let i = 0; i < 25; i++) {
+        const mid = (low + high) / 2;
+        const midBlob = await toBlob(mid);
+        const size = midBlob.size;
+        const diff = Math.abs(size - targetBytes);
+        
+        // Update best if within range and closer to target
+        if (size >= minBytes && size <= maxBytes && diff < bestDiff) {
+          bestDiff = diff;
+          bestBlob = midBlob;
+          bestQuality = mid;
+        }
+        
+        // Smart binary search adjustment
+        if (size < minBytes) {
+          // Too small - need to INCREASE quality
+          low = mid;
+        } else if (size > maxBytes) {
+          // Too large - need to DECREASE quality
+          high = mid;
+        } else {
+          // In range! But try to get closer to target
+          if (size < targetBytes) {
+            low = mid;
+          } else {
+            high = mid;
+          }
+        }
+        
+        // If we found good match in range, can exit early
+        if (size >= minBytes && size <= maxBytes && diff < 512) {
+          break;
+        }
+      }
+      
+      // CRITICAL: Ensure we're in the valid range (never below minKB for signature)
+      const finalKB = bestBlob.size / 1024;
+      if (finalKB < minKB) {
+        bestBlob = await toBlob(0.99);
+        bestQuality = 0.99;
+      } else if (finalKB > maxKB) {
+        bestBlob = await toBlob(0.85);
+        bestQuality = 0.85;
+      }
+      
+      return { blob: bestBlob, quality: bestQuality };
+    }
+    
+    // Ensure blob is within KB range - if below minKB, increase quality; if above maxKB, decrease quality
+    async function ensureMinimumKB(canvas, blob, minKB, maxKB, originalWidth, originalHeight) {
+      const currentKB = blob.size / 1024;
+      
+      // If already in range, return as is
+      if (currentKB >= minKB && currentKB <= maxKB) {
+        return blob;
+      }
+      
+      // If below minimum (e.g., signature 9 KB when need 10 KB)
+      if (currentKB < minKB) {
+        // Try using MAXIMUM quality first - this works for signature files
+        const qualities = [1.0, 0.99, 0.98, 0.97, 0.96, 0.95, 0.94, 0.93, 0.92];
+        
+        let bestQualityBlob = null;
+        let bestQualityKB = 0;
+        
+        for (const quality of qualities) {
+          const testBlob = await new Promise(resolve => canvas.toBlob(resolve, 'image/jpeg', quality));
+          const testKB = testBlob.size / 1024;
+          
+          if (testKB >= minKB && testKB <= maxKB) {
+            // Perfect - in range with high quality!
+            return testBlob;
+          }
+          
+          // Track best quality that gets us closest to range
+          if (testKB < minKB && testKB > bestQualityKB) {
+            bestQualityBlob = testBlob;
+            bestQualityKB = testKB;
+          }
+        }
+        
+        // If max quality (1.0) is still below minKB, increase canvas size/scale
+        if (bestQualityKB < minKB) {
+          // Increase size moderately to add more pixel data = more KB
+          const scaleFactor = Math.sqrt(minKB / bestQualityKB) * 1.15;
+          
+          const largerCanvas = document.createElement('canvas');
+          largerCanvas.width = Math.floor(canvas.width * scaleFactor);
+          largerCanvas.height = Math.floor(canvas.height * scaleFactor);
+          const lctx = largerCanvas.getContext('2d');
+          
+          lctx.imageSmoothingEnabled = true;
+          lctx.imageSmoothingQuality = 'high';
+          lctx.drawImage(canvas, 0, 0, largerCanvas.width, largerCanvas.height);
+          
+          // Try quality 1.0 on larger canvas
+          const largerBlob = await new Promise(resolve => largerCanvas.toBlob(resolve, 'image/jpeg', 1.0));
+          const largerKB = largerBlob.size / 1024;
+          
+          if (largerKB >= minKB && largerKB <= maxKB) {
+            return largerBlob;
+          }
+          
+          // If still below, return with high quality
+          return largerBlob;
+        }
+        
+        // Return best quality blob we found
+        return bestQualityBlob || blob;
+      }
+      
+      // If above maximum (e.g., signature 25 KB when need max 20 KB)
+      if (currentKB > maxKB) {
+        // Calculate target KB - aim for middle-upper range of allowed (15 KB for 10-20 KB range)
+        const targetKB = Math.floor(minKB + (maxKB - minKB) * 0.65);
+        const res = await compressToTargetKB(canvas, targetKB, minKB, maxKB);
+        
+        // Verify result is in range
+        const resultKB = res.blob.size / 1024;
+        if (resultKB >= minKB && resultKB <= maxKB) {
+          return res.blob;
+        }
+        
+        // Fallback: binary search exact quality
+        const qualities = [0.99, 0.98, 0.97, 0.96, 0.95, 0.94, 0.93, 0.92, 0.91, 0.90, 0.85, 0.80];
+        for (const q of qualities) {
+          const testBlob = await new Promise(resolve => canvas.toBlob(resolve, 'image/jpeg', q));
+          const testKB = testBlob.size / 1024;
+          if (testKB >= minKB && testKB <= maxKB) {
+            return testBlob;
+          }
+        }
+        
+        return res.blob;
+      }
+      
+      return blob;
+    }
+
+    initExamSelector();
+  </script>
+
+  <script>
+    // Navigation toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (navToggle) {
+      navToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+      });
+
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('active');
+        });
+      });
+    }
+  </script>
+</body>
+</html>

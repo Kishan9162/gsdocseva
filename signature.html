@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Favicon (root icons take priority) -->
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <meta name="msapplication-TileImage" content="/favicon-32.png">
+  <!-- Backwards-compatible image reference -->
+  <link rel="icon" href="images/gs-logo.png" sizes="any">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO Meta Tags -->
+<title>Free Signature Scanner | White Background Signature Maker Online</title>
+<meta name="description" content="Clean signature background online free. Remove grey & shadows from signature photos. Perfect for exam forms, documents & applications. Instant white background signature maker.">
+<meta name="keywords" content="signature scanner, white background signature, signature maker, clean signature, remove signature background, signature photo cleaner, exam form signature, document signature, online signature cleaner, signature background remover">
+
+<link rel="stylesheet" href="style.min.css">
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    background: #f9fafb;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  }
+
+  .signature-container { max-width: 1400px; margin: 10px auto; padding: 0 15px; }
+  .signature-section {
+    display: grid;
+    grid-template-columns: 320px 1fr 380px;
+    gap: 20px;
+    align-items: start;
+  }
+  .signature-section h2 { margin: 0 0 10px 0; font-size: 16px; font-weight: 700; color: #1f2937; letter-spacing: -0.3px; }
+  .signature-section h3 { margin: 0 0 12px 0; font-size: 13px; font-weight: 600; color: #1f2937; text-align: center; }
+  .upload-area {
+    border: 3px dashed #cbd5e1;
+    padding: 32px 18px;
+    text-align: center;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  .upload-area:hover {
+    border-color: #667eea;
+    background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+  /* Keep inputs available for programmatic .click() (Edge requires not display:none) */
+  .upload-area input,
+  input.hidden-offscreen,
+  input[type="file"]:not(.visible-native) {
+    /* place off-screen instead of display:none so mobile/Edge allow programmatic .click() */
+    position: absolute !important;
+    left: -9999px !important;
+    top: auto !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+  .upload-area.dragover { border-color: #667eea; background: linear-gradient(135deg, #e0e7ff 0%, #dde5ff 100%); }
+
+  .controls-section {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+  }
+  .controls { margin: 12px 0; display: flex; flex-direction: column; gap: 10px; }
+  .btn {
+    background: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    width: 100%;
+    box-shadow: 0 2px 8px rgba(79, 70, 229, 0.2);
+    transition: all 0.3s ease;
+  }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4); }
+  .btn.whatsapp { background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); box-shadow: 0 4px 12px rgba(37, 211, 102, 0.35); }
+  .btn.reset { background: linear-gradient(135deg, #64748b 0%, #475569 100%); box-shadow: 0 4px 12px rgba(100, 116, 139, 0.3); }
+  .btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+  .preview { max-width: 100%; max-height: 150px; object-fit: contain; border-radius: 6px; display: none; position: relative; z-index: 2; }
+  /* Preview label pill */
+  .preview-label {
+    display: inline-block;
+    background: #eef2ff;
+    color: #1f2937;
+    font-weight: 700;
+    font-size: 12px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    margin-bottom: 8px;
+  }
+  .preview-box {
+    background: #f8fafc;
+    border-radius: 8px;
+    padding: 10px;
+    min-height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #cbd5e1;
+    position: relative;
+    margin-bottom: 15px;
+  }
+  .preview-box.cleaned { background: #f0fdf4; border-color: #86efac; }
+
+  .slider-row { width: 100%; display: flex; flex-direction: column; gap: 8px; margin: 15px 0; }
+  .slider-header { display: flex; justify-content: space-between; align-items: center; }
+  .slider { width: 100%; height: 6px; border-radius: 5px; outline: none; }
+  .slider-label { font-weight: 600; color: #374151; font-size: 12px; }
+  .slider-value { font-weight: 700; color: #4f46e5; font-size: 12px; }
+  .chip-group { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+  .chip {
+    border: 2px solid #e5e7eb;
+    padding: 8px 14px;
+    border-radius: 20px;
+    background: white;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 12px;
+    color: #64748b;
+    transition: all 0.2s ease;
+    flex: 1;
+    text-align: center;
+  }
+  .chip:hover { border-color: #3b82f6; color: #3b82f6; background: #eff6ff; transform: translateY(-2px); box-shadow: 0 2px 8px rgba(59, 130, 246, 0.2); }
+
+  .result-msg { margin-top: 12px; padding: 14px 16px; border-radius: 10px; background: #e8f5e9; color: #2e7d32; border-left: 4px solid #4caf50; display: flex; gap: 10px; align-items: center; }
+  .result-msg.error { background: #ffebee; color: #c62828; border-left-color: #f44336; }
+  .result-msg.warning { background: #fff8e1; color: #e65100; border-left-color: #ff9800; }
+  .spinner { width: 16px; height: 16px; border: 3px solid rgba(0,0,0,0.1); border-top-color: #4caf50; border-radius: 50%; animation: spin 0.8s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  @media(max-width: 640px) {
+    .slider-row { grid-template-columns: 1fr; }
+    .slider-value { text-align: left; }
+  }
+
+  /* Responsive collapse for small screens */
+  @media (max-width: 900px) {
+    .signature-section { grid-template-columns: 1fr !important; gap: 12px; }
+    .preview { max-height: 160px; }
+    .preview-box { min-height: 120px; padding: 8px; }
+    .upload-area { padding: 16px; }
+    .controls-section { padding: 12px; }
+    /* hide cleaned-preview on small screens (keep only single preview) */
+    .cleaned-preview-desktop { display: none !important; }
+  }
+
+  /* Center placeholder text inside preview boxes */
+  .preview-box > span {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #94a3b8;
+    font-size: 12px;
+    line-height: 1.3;
+    pointer-events: none;
+    white-space: pre-line;
+  }
+</style>
+</head>
+<body>
+
+<!-- Maintenance notice removed -->
+
+<!-- Navigation Bar -->
+<nav>
+  <div class="nav-container">
+    <a href="index.html" class="nav-brand">
+      <img src="images/gs-logo-horizontal.png" alt="" class="nav-logo" onerror="this.style.display='none'">
+    </a>
+    <button class="nav-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="exam-prep.html">Exam Prep</a></li>
+      <li><a href="resize.html">Resize</a></li>
+      <li><a href="remove-bg.html">Remove BG</a></li>
+      <li><a href="convert.html">Convert</a></li>
+      <li><a href="signature.html" class="active">Signature</a></li>
+      <li><a href="privacy-policy.html">Privacy</a></li>
+    </ul>
+  </div>
+</nav>
+        
+<div class="signature-container">
+  <!-- Header with Visual Example -->
+  <div style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); padding: 16px; border-radius: 12px; margin-bottom: 15px; border-left: 4px solid #f59e0b; color: #78350f;">
+    <div style="display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap;">
+      <!-- Visual Icon -->
+        <div id="changeUploadContainer" style="display:none; text-align:center; margin-top:8px;">
+          <button id="changeSigBtn" class="btn reset" style="width:160px; font-size:13px;">Change Image</button>
+        </div>
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <div style="background: white; padding: 12px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border: 2px solid #fed7aa;">
+          <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Document with signature -->
+            <rect x="4" y="2" width="16" height="20" rx="2" fill="#f8fafc" stroke="#64748b" stroke-width="1.5"/>
+            <line x1="7" y1="6" x2="17" y2="6" stroke="#cbd5e1" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="7" y1="9" x2="14" y2="9" stroke="#cbd5e1" stroke-width="1.5" stroke-linecap="round"/>
+            <!-- Signature line -->
+            <path d="M 7 15 Q 10 13, 13 15 T 17 15" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" fill="none"/>
+          </svg>
+        </div>
+        <div style="font-size: 24px;">→</div>
+        <div style="background: white; padding: 12px; border-radius: 10px; box-shadow: 0 2px 8px rgba(34, 197, 94, 0.2); border: 2px solid #86efac;">
+          <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Clean signature only -->
+            <path d="M 4 12 Q 8 8, 12 12 T 20 12" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+            <circle cx="18" cy="12" r="1.5" fill="#10b981"/>
+          </svg>
+        </div>
+      </div>
+      <!-- Text -->
+      <div style="text-align: center;">
+        <div style="font-size: 15px; font-weight: 700; margin-bottom: 4px;">✍️ Signature Background Cleaner</div>
+        <div style="font-size: 12px; font-weight: 500;">Upload scanned signature → AI removes background → Download clean PNG</div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="signature-section">
+    <!-- Column 0: Preview (Left) -->
+    <div>
+      <div style="background: white; padding: 15px; border-radius: 12px; border: 1px solid #e2e8f0;">
+        <h3>📷 Preview</h3>
+        
+        <!-- Original -->
+        <div class="preview-box">
+          <img id="signaturePreview" class="preview">
+          <span style="font-size: 11px; color: #94a3b8; text-align: center; position: absolute;">Original image<br>will appear here</span>
+        </div>
+        
+        <!-- Arrow -->
+        <div id="previewArrow" style="text-align: center; margin: 10px 0; font-size: 18px; color: #10b981;">⬇️</div>
+
+        <!-- Cleaned (desktop only) -->
+        <div class="preview-box cleaned cleaned-preview-desktop" id="cleanedPreviewBox">
+          <img id="signatureCleanPreview" class="preview">
+          <span style="font-size: 11px; color: #4ade80; text-align: center; position: absolute;">Cleaned image<br>will appear here</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Column 1: Upload (Middle) -->
+    <div>
+      <div class="upload-area upload-lower" id="signatureUploadArea">
+        <div style="font-size: 40px; margin-bottom: 10px;">
+          <svg width="48" height="48" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block;">
+            <rect x="8" y="16" width="48" height="40" rx="4" fill="#e0e7ff" stroke="#667eea" stroke-width="2"/>
+            <path d="M20 36L28 28L36 36L44 28L52 36" stroke="#667eea" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="22" cy="26" r="3" fill="#fbbf24"/>
+            <path d="M32 8L32 24M32 8L28 12M32 8L36 12" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="32" cy="24" r="2" fill="#10b981"/>
+          </svg>
+        </div>
+        <p>Upload Signature Photo</p>
+        <small>Click or drag &amp; drop</small>
+        <button type="button" id="chooseSigBtn" class="btn-choose">Choose file</button>
+        <input type="file" id="signatureFile" class="hidden-offscreen" accept="image/*" multiple>
+      </div>
+      
+      <div style="text-align:center; margin: 12px 0;">
+        <button type="button" onclick="loadSampleSignature()" style="background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); color: #15803d; border: 2px solid #86efac; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 12px; transition: all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(34, 197, 94, 0.2)'" onmouseout="this.style.transform=''; this.style.boxShadow=''">✍️ Try Sample</button>
+      </div>
+
+      <div id="sigFileListContainer" style="display:none; margin-top:15px; padding: 12px; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;">
+        <h4 style="font-size:11px; color:#475569; margin:0 0 8px 0; font-weight:600;">📋 Selected:</h4>
+        <div id="sigFileList" style="display:grid; gap:6px; font-size:11px;"></div>
+      </div>
+      
+      <div style="font-size:11px; color:#64748b; margin: 12px 0; padding: 10px; background: #eff6ff; border-radius: 6px; border-left: 3px solid #3b82f6;">
+        <strong style="color: #1e40af;">🔒 Private & Secure:</strong> All processing happens in your browser. Files never uploaded.
+      </div>
+    </div>
+
+    <!-- Column 2: Settings (Right) -->
+    <div>
+      <div class="controls-section">
+        <h3 style="margin: 0 0 15px 0;">⚙️ Adjust Settings</h3>
+        
+        <div class="slider-row">
+          <div class="slider-header">
+            <span class="slider-label">✏️ Ink Strength</span>
+            <span class="slider-value" id="sigLevelLabel">190</span>
+          </div>
+          <input type="range" id="sigThreshold" class="slider" min="120" max="230" value="190" step="2" oninput="updateSigLabel(this.value)">
+        </div>
+        
+        <div class="chip-group">
+          <button class="chip" type="button" onclick="setSigLevel(170, 'Light')">💡 Light</button>
+          <button class="chip" type="button" onclick="setSigLevel(190, 'Normal')">✅ Normal</button>
+          <button class="chip" type="button" onclick="setSigLevel(210, 'Bold')">💪 Bold</button>
+        </div>
+        
+        <div class="controls">
+          <button class="btn" onclick="cleanSignature()">💾 Download</button>
+          <button class="btn whatsapp" onclick="shareSignatureWhatsApp()">
+            <span style="vertical-align:middle; display:inline-block; margin-right:6px;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="#25D366"/><path d="M16 6C10.477 6 6 10.477 6 16c0 2.037.613 3.93 1.665 5.51L6 26l4.646-1.61A9.94 9.94 0 0 0 16 26c5.523 0 10-4.477 10-10S21.523 6 16 6Zm5.07 13.07c-.21.59-1.23 1.16-1.7 1.23-.44.07-1.01.1-1.63-.1-.38-.12-.87-.28-1.5-.55-2.64-1.14-4.36-3.81-4.5-3.99-.13-.18-1.08-1.44-1.08-2.75 0-1.31.69-1.95.94-2.22.21-.22.46-.28.62-.28.16 0 .31.01.44.01.14 0 .33-.05.52.4.2.48.68 1.65.74 1.77.06.12.1.26.02.42-.08.16-.12.26-.23.4-.11.13-.23.29-.33.39-.11.11-.22.23-.1.45.13.22.58.96 1.25 1.56.86.77 1.59 1.01 1.81 1.13.22.12.35.1.48-.06.13-.16.55-.64.7-.86.15-.22.29-.18.48-.11.2.07 1.27.6 1.49.71.22.11.36.17.41.27.06.1.06.6-.15 1.19Z" fill="#fff"/></svg>
+            </span>
+            WhatsApp
+          </button>
+          <button class="btn reset" onclick="resetSignature()">🔄 Reset</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="signatureOutput"></div>
+</div>
+
+<footer class="footer">
+  <div class="footer-content">
+    <p><strong>GS DocSeva</strong> — Free Government Exam Document Preparation Suite</p>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms-of-service.html">Terms of Service</a>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-bottom">
+      <p>© 2025 GS DocSeva. All rights reserved. | Your documents stay completely private</p>
+    </div>
+  </div>
+</footer>
+
+<script src="helpers.js"></script>
+<script>
+  const MAX_IMAGE_SIZE = 10 * 1024 * 1024; // 10MB
+  const SUPPORTED_IMAGE_TYPES = ['image/jpeg', 'image/png', 'image/webp', 'image/gif', 'image/bmp'];
+  let signatureImage = null;
+  let signatureFileName = '';
+  let signatureFileInfo = '';
+  let blobUrls = [];
+  let signatureFiles = [];
+  let signatureSelectedIndices = [];
+
+  function updateSigFileList() {
+    const container = document.getElementById('sigFileListContainer');
+    const fileList = document.getElementById('sigFileList');
+    if (signatureFiles.length === 0) {
+      container.style.display = 'none';
+      return;
+    }
+    container.style.display = 'block';
+    fileList.innerHTML = signatureFiles.map((f, i) => `
+      <label style="display:flex; align-items:center; gap:10px; padding:10px; background:#f0f4ff; border-radius:6px; cursor:pointer; border:2px solid ${signatureSelectedIndices.includes(i) ? '#667eea' : '#e5e7eb'};">
+        <input type="checkbox" ${signatureSelectedIndices.includes(i) ? 'checked' : ''} onchange="toggleSigFileSelection(${i})" style="width:18px; height:18px;">
+        <span style="flex:1; font-size:13px; color:#1e293b; font-weight:500;">${f.name}</span>
+        <span style="font-size:12px; color:#64748b;">${(f.size/1024).toFixed(1)}KB</span>
+      </label>
+    `).join('');
+  }
+
+
+  function toggleSigFileSelection(index) {
+    if (signatureSelectedIndices.includes(index)) {
+      signatureSelectedIndices = signatureSelectedIndices.filter(i => i !== index);
+    } else {
+      signatureSelectedIndices.push(index);
+    }
+    updateSigFileList();
+  }
+
+  function loadSampleSignature() {
+    // Short valid base64 sample image (1x1 px white)
+    const sampleDataUrl = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/w8AAgMBgA2Qb9cAAAAASUVORK5CYII=';
+    signatureFileInfo = `<div class="file-info">✍️ Sample Signature • 1x1px</div>`;
+    document.getElementById('signatureOutput').innerHTML = signatureFileInfo;
+    document.getElementById('sigFileListContainer').style.display = 'none';
+    processSignature(false);
+    showToast('Sample signature loaded! Try cleaning it.', 'success');
+    signatureImage.src = sampleDataUrl;
+  }
+
+  function showLoading(elementId, message = '⏳ Processing...') {
+    document.getElementById(elementId).innerHTML = `<div class="result-msg"><span class="spinner"></span>${message}</div>`;
+  }
+  function showSuccess(elementId, message) {
+    document.getElementById(elementId).innerHTML = `<div class="result-msg">✅ ${message}</div>`;
+  }
+  function showError(elementId, message) {
+    document.getElementById(elementId).innerHTML = `<div class="result-msg error">❌ ${message}</div>`;
+  }
+  function validateFileSize(file, maxSize) {
+    if (file.size > maxSize) {
+      const sizeMB = (maxSize / (1024 * 1024)).toFixed(1);
+      const fileSizeMB = (file.size / (1024 * 1024)).toFixed(1);
+      return { valid: false, error: `File size ${fileSizeMB}MB exceeds limit of ${sizeMB}MB` };
+    }
+    return { valid: true };
+  }
+  function validateFileType(file, validTypes) {
+    if (!validTypes.includes(file.type)) {
+      return { valid: false, error: 'Invalid file type. Please upload a valid format.' };
+    }
+    return { valid: true };
+  }
+  function formatFileSize(bytes) {
+    if (bytes === 0) return '0 Bytes';
+    const k = 1024;
+    const sizes = ['Bytes', 'KB', 'MB'];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return Math.round(bytes / Math.pow(k, i) * 100) / 100 + ' ' + sizes[i];
+  }
+  function cleanupBlobUrls() {
+    blobUrls.forEach(url => URL.revokeObjectURL(url));
+    blobUrls = [];
+  }
+
+  // Small UX wiring for mobile-friendly file selection and previews
+  (function() {
+    const sigFile = document.getElementById('signatureFile');
+    const chooseSigBtn = document.getElementById('chooseSigBtn');
+    const sigUploadArea = document.getElementById('signatureUploadArea');
+    const sigPreview = document.getElementById('signaturePreview');
+
+    if (chooseSigBtn && sigFile) chooseSigBtn.addEventListener('click', () => sigFile.click());
+    if (sigUploadArea && sigFile) sigUploadArea.addEventListener('click', (e) => { if (!e.target.closest('#chooseSigBtn')) sigFile.click(); });
+
+    if (sigPreview) {
+      sigPreview.addEventListener('load', () => { sigPreview.style.display = 'block'; const ph = sigPreview.nextElementSibling; if (ph) ph.style.display = 'none'; });
+      sigPreview.addEventListener('error', () => { sigPreview.style.display = 'none'; const ph = sigPreview.nextElementSibling; if (ph) ph.style.display = 'block'; });
+    }
+
+    if (sigFile) sigFile.addEventListener('change', function() { setTimeout(() => { try { this.value = this.value ? this.value : ''; } catch(e){} }, 300); });
+  })();
+
+  document.getElementById('signatureFile').addEventListener('change', function(e) {
+    const files = e.target.files;
+    if (!files || files.length === 0) return;
+    signatureFiles = Array.from(files);
+    signatureSelectedIndices = signatureFiles.map((_, i) => i);
+    updateSigFileList();
+    if (signatureFiles.length > 0) {
+      signatureFileName = signatureFiles[0].name.replace(/\.[^.]+$/, '');
+      showLoading('signatureOutput', '⏳ Loading signature...');
+      const reader = new FileReader();
+      reader.onload = function(event) {
+        signatureImage = new Image();
+        signatureImage.onload = function() {
+          const originalPreview = document.getElementById('signaturePreview');
+          originalPreview.src = event.target.result;
+          originalPreview.style.display = 'block';
+          signatureFileInfo = `<div class="file-info">✍️ ${signatureFiles[0].name} (${formatFileSize(signatureFiles[0].size)}) • ${signatureImage.width}x${signatureImage.height}px</div>`;
+          document.getElementById('signatureOutput').innerHTML = signatureFileInfo;
+          processSignature(false);
+          // On mobile we keep upload hidden; on desktop keep it visible so user can re-upload
+          const uploadArea = document.getElementById('signatureUploadArea');
+          const changeContainer = document.getElementById('changeUploadContainer');
+          const isMobile = window.matchMedia('(max-width:900px)').matches;
+          if (isMobile) {
+            if (uploadArea) uploadArea.style.display = 'none';
+            if (changeContainer) changeContainer.style.display = 'none';
+          } else {
+            if (uploadArea) uploadArea.style.display = 'block';
+            if (changeContainer) changeContainer.style.display = 'block';
+          }
+          // Scroll controls into view so user can adjust ink immediately
+          const controls = document.querySelector('.controls-section');
+          if (controls) controls.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // focus the slider for quick access
+          const slider = document.getElementById('sigThreshold'); if (slider) slider.focus();
+        };
+        signatureImage.src = event.target.result;
+      };
+      reader.onerror = function() {
+        showError('signatureOutput', 'Error reading file. Please try again.');
+      };
+      reader.readAsDataURL(signatureFiles[0]);
+    }
+  });
+
+  const signatureUploadArea = document.getElementById('signatureFile').parentElement;
+  ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+    signatureUploadArea.addEventListener(eventName, preventDefaults, false);
+  });
+  ['dragenter', 'dragover'].forEach(eventName => {
+    signatureUploadArea.addEventListener(eventName, () => signatureUploadArea.classList.add('dragover'));
+  });
+  ['dragleave', 'drop'].forEach(eventName => {
+    signatureUploadArea.addEventListener(eventName, () => signatureUploadArea.classList.remove('dragover'));
+  });
+  signatureUploadArea.addEventListener('drop', (e) => {
+    const dt = e.dataTransfer;
+    const files = dt.files;
+    if (!files || !files.length) return;
+    document.getElementById('signatureFile').files = files;
+    const event = new Event('change', { bubbles: true });
+    document.getElementById('signatureFile').dispatchEvent(event);
+  });
+
+  // Change image / show upload area button
+  const changeSigBtn = document.getElementById('changeSigBtn');
+  if (changeSigBtn) changeSigBtn.addEventListener('click', () => {
+    const uploadArea = document.getElementById('signatureUploadArea');
+    const sigFile = document.getElementById('signatureFile');
+    const changeContainer = document.getElementById('changeUploadContainer');
+    if (uploadArea) uploadArea.style.display = 'block';
+    if (changeContainer) changeContainer.style.display = 'none';
+    if (sigFile) sigFile.click();
+  });
+
+  // Paste-from-clipboard support
+  document.addEventListener('paste', (e) => {
+    const files = e.clipboardData?.files;
+    if (!files || !files.length) return;
+    document.getElementById('signatureFile').files = files;
+    const event = new Event('change', { bubbles: true });
+    document.getElementById('signatureFile').dispatchEvent(event);
+    showLoading('signatureOutput', '⏳ Loading signature...');
+  });
+
+  function preventDefaults(e) { e.preventDefault(); e.stopPropagation(); }
+
+  function describeSigLevel(val) {
+    const num = Number(val);
+    if (num <= 175) return 'Light';
+    if (num >= 205) return 'Bold';
+    return 'Normal';
+  }
+  function updateSigLabel(val, labelOverride) {
+    const label = labelOverride || describeSigLevel(val);
+    document.getElementById('sigLevelLabel').textContent = `${label} (${val})`;
+    if (signatureImage) {
+      processSignature(false);
+    }
+  }
+  function setSigLevel(val, label) {
+    const slider = document.getElementById('sigThreshold');
+    slider.value = val;
+    updateSigLabel(val, label);
+    // When "Normal" is clicked, force the standard preset so output stays consistent across images
+    processSignature(false, label === 'Normal');
+  }
+
+  function processSignature(shouldDownload = true, forceNormalPreset = false) {
+    if (!signatureImage) {
+      showError('signatureOutput', 'Please upload a signature first');
+      return;
+    }
+
+    if (shouldDownload) {
+      showLoading('signatureOutput', '⏳ Cleaning signature...');
+    }
+
+    const threshold = forceNormalPreset ? 190 : Number(document.getElementById('sigThreshold').value);
+    const canvas = document.createElement('canvas');
+    canvas.width = signatureImage.width;
+    canvas.height = signatureImage.height;
+    const ctx = canvas.getContext('2d');
+    ctx.drawImage(signatureImage, 0, 0);
+
+    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    const data = imageData.data;
+    const softness = forceNormalPreset ? 16 : 18;
+
+    for (let i = 0; i < data.length; i += 4) {
+      const r = data[i];
+      const g = data[i + 1];
+      const b = data[i + 2];
+      const gray = 0.299 * r + 0.587 * g + 0.114 * b;
+
+      let alpha = 0;
+      if (gray < threshold - softness) {
+        alpha = 1;
+      } else if (gray > threshold + softness) {
+        alpha = 0;
+      } else {
+        alpha = (threshold + softness - gray) / (2 * softness);
+      }
+
+      const ink = Math.round(255 * (1 - 0.85 * alpha));
+      data[i] = data[i + 1] = data[i + 2] = Math.min(255, ink);
+      data[i + 3] = 255;
+    }
+
+    ctx.putImageData(imageData, 0, 0);
+
+    const isMobile = window.matchMedia('(max-width:900px)').matches;
+    if (isMobile) {
+      // Mobile: replace single preview with cleaned output
+      const previewEl = document.getElementById('signaturePreview');
+      previewEl.src = canvas.toDataURL('image/png');
+      previewEl.style.display = 'block';
+      // hide cleaned preview box if present
+      const cleanedBox = document.getElementById('cleanedPreviewBox'); if (cleanedBox) cleanedBox.style.display = 'none';
+      const arrow = document.getElementById('previewArrow'); if (arrow) arrow.style.display = 'none';
+    } else {
+      // Desktop: show both original and cleaned previews
+      const cleanPreview = document.getElementById('signatureCleanPreview');
+      if (cleanPreview) {
+        cleanPreview.src = canvas.toDataURL('image/png');
+        cleanPreview.style.display = 'block';
+      }
+      const previewEl = document.getElementById('signaturePreview'); if (previewEl) previewEl.style.display = 'block';
+      const cleanedBox = document.getElementById('cleanedPreviewBox'); if (cleanedBox) cleanedBox.style.display = 'block';
+      const arrow = document.getElementById('previewArrow'); if (arrow) arrow.style.display = 'block';
+    }
+
+    if (!shouldDownload) {
+      const message = '<div class="result-msg">✅ Preview updated — adjust ink strength if needed.</div>';
+      document.getElementById('signatureOutput').innerHTML = `${signatureFileInfo || ''}${message}`;
+      return;
+    }
+
+    canvas.toBlob(blob => {
+      if (!blob) {
+        showError('signatureOutput', 'Error creating cleaned signature.');
+        return;
+      }
+      
+      lastSignatureBlob = blob;
+      lastSignatureFileName = appendBrand(`${signatureFileName || 'signature'}-clean.jpg`);
+      
+      const url = URL.createObjectURL(blob);
+      blobUrls.push(url);
+
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = lastSignatureFileName;
+      a.click();
+
+      setTimeout(() => {
+        URL.revokeObjectURL(url);
+        blobUrls = blobUrls.filter(u => u !== url);
+      }, 1000);
+
+      document.getElementById('signatureOutput').innerHTML = `${signatureFileInfo || ''}<div class="result-msg">✅ Signature cleaned and downloaded as JPG!</div>`;
+    }, 'image/jpeg', 0.92);
+  }
+
+  function cleanSignature() { 
+    if (signatureFiles.length > 1) {
+      processSelectedSignatures(true);
+    } else {
+      processSignature(true);
+    }
+  }
+
+  async function processSelectedSignatures(shouldDownload = true) {
+    if (signatureFiles.length === 0) {
+      showError('signatureOutput', 'Please upload signatures first');
+      return;
+    }
+    if (signatureSelectedIndices.length === 0) {
+      showError('signatureOutput', 'Please select at least one signature');
+      return;
+    }
+    const totalSelected = signatureSelectedIndices.length;
+    for (let idx = 0; idx < signatureSelectedIndices.length; idx++) {
+      const fileIndex = signatureSelectedIndices[idx];
+      const file = signatureFiles[fileIndex];
+      signatureFileName = file.name.replace(/\.[^.]+$/, '');
+      await new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.onload = function(event) {
+          signatureImage = new Image();
+          signatureImage.onload = function() {
+            processSignatureBatch(shouldDownload, idx + 1, totalSelected);
+            resolve();
+          };
+          signatureImage.src = event.target.result;
+        };
+        reader.readAsDataURL(file);
+      });
+    }
+    if (shouldDownload) {
+      showLoading('signatureOutput', '');
+      document.getElementById('signatureOutput').innerHTML = `<div class="result-msg">✅ Batch Complete! Processed ${totalSelected} signature(s)</div>`;
+    }
+  }
+
+  function processSignatureBatch(shouldDownload, currentNum, totalNum) {
+    if (!signatureImage) return;
+    const threshold = Number(document.getElementById('sigThreshold').value);
+    const canvas = document.createElement('canvas');
+    canvas.width = signatureImage.width;
+    canvas.height = signatureImage.height;
+    const ctx = canvas.getContext('2d');
+    ctx.drawImage(signatureImage, 0, 0);
+    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    const data = imageData.data;
+    const softness = 18;
+    for (let i = 0; i < data.length; i += 4) {
+      const r = data[i], g = data[i + 1], b = data[i + 2];
+      const gray = 0.299 * r + 0.587 * g + 0.114 * b;
+      let alpha = 0;
+      if (gray < threshold - softness) alpha = 1;
+      else if (gray > threshold + softness) alpha = 0;
+      else alpha = (threshold + softness - gray) / (2 * softness);
+      const ink = Math.round(255 * (1 - 0.85 * alpha));
+      data[i] = data[i + 1] = data[i + 2] = Math.min(255, ink);
+      data[i + 3] = 255;
+    }
+    ctx.putImageData(imageData, 0, 0);
+    if (shouldDownload) {
+      showLoading('signatureOutput', `⏳ Processing ${currentNum}/${totalNum}...`);
+      canvas.toBlob(blob => {
+        if (!blob) return;
+        const url = URL.createObjectURL(blob);
+        blobUrls.push(url);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = appendBrand(`${signatureFileName || 'signature'}-clean.jpg`);
+        a.click();
+        setTimeout(() => {
+          URL.revokeObjectURL(url);
+          blobUrls = blobUrls.filter(u => u !== url);
+        }, 1000);
+      }, 'image/jpeg', 0.92);
+    }
+  }
+
+  function resetSignature() {
+    const sigElem = document.getElementById('signatureFile'); if (sigElem) sigElem.value = '';
+    const sp = document.getElementById('signaturePreview'); if (sp) sp.style.display = 'none';
+    const scp = document.getElementById('signatureCleanPreview'); if (scp) scp.style.display = 'none';
+    const sout = document.getElementById('signatureOutput'); if (sout) sout.innerHTML = '';
+    const flc = document.getElementById('sigFileListContainer'); if (flc) flc.style.display = 'none';
+    const fl = document.getElementById('sigFileList'); if (fl) fl.innerHTML = '';
+    signatureImage = null;
+    signatureFileName = '';
+    signatureFileInfo = '';
+    signatureFiles = [];
+    signatureSelectedIndices = [];
+    cleanupBlobUrls();
+    // Restore upload area on desktop only
+    const isMobile = window.matchMedia('(max-width:900px)').matches;
+    const uploadArea = document.getElementById('signatureUploadArea');
+    const changeContainer = document.getElementById('changeUploadContainer');
+    if (!isMobile) {
+      if (uploadArea) uploadArea.style.display = 'block';
+    } else {
+      if (uploadArea) uploadArea.style.display = 'none';
+    }
+    if (changeContainer) changeContainer.style.display = 'none';
+  }
+
+  // WhatsApp Share Function
+  let lastSignatureBlob = null;
+  let lastSignatureFileName = '';
+
+  async function shareSignatureWhatsApp() {
+    if (!lastSignatureBlob) {
+      alert('Please clean signature first!');
+      return;
+    }
+    
+    try {
+      const file = new File([lastSignatureBlob], lastSignatureFileName, { type: 'image/jpeg' });
+      
+      if (navigator.canShare && navigator.canShare({ files: [file] })) {
+        await navigator.share({
+          files: [file],
+          title: 'Cleaned Signature',
+          text: 'Check out my cleaned signature from GS DocSeva!'
+        });
+        return;
+      }
+      
+      // Fallback
+      const url = URL.createObjectURL(lastSignatureBlob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = lastSignatureFileName;
+      a.click();
+      
+      const message = 'I cleaned my signature using GS DocSeva! Check it out at https://resizegovform.netlify.app';
+      const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank');
+    } catch (error) {
+      console.error('Share error:', error);
+    }
+  }
+
+  window.addEventListener('beforeunload', cleanupBlobUrls);
+
+  // Navigation toggle
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  if (navToggle) {
+    navToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => navLinks.classList.remove('active')));
+  }
+</script>
+</body>
+</html>

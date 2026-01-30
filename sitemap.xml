@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://www.gsforesize.online/</loc>
+  </url>
+  <url>
+    <loc>https://www.gsdocseva.com/</loc>
+    <lastmod>2026-01-28</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <!-- Converter landing and format-specific static pages -->
+  <url>
+    <loc>https://www.gsforesize.online/convert.html</loc>
+  </url>
+  <url>
+    <loc>https://www.gsforesize.online/convert-png.html</loc>
+  </url>
+  <url>
+    <loc>https://www.gsforesize.online/convert-jpg.html</loc>
+  </url>
+  <url>
+    <loc>https://www.gsforesize.online/convert-webp.html</loc>
+  </url>
+  <url>
+    <loc>https://www.gsforesize.online/convert-gif.html</loc>
+  </url>
+  <url>
+    <loc>https://www.gsforesize.online/convert-pdf.html</loc>
+  </url>
+  <url>
+    <loc>https://www.gsforesize.online/convert-bmp.html</loc>
+  </url>
+  <url>
+    <loc>https://www.gsforesize.online/convert-tiff.html</loc>
+  </url>
+  <url>
+    <loc>https://www.gsforesize.online/convert-ico.html</loc>
+  </url>
+
+  <!-- Converter query URLs (keep for completeness) -->
+  <url>
+    <loc>https://www.gsforesize.online/convert.html?to=png</loc>
+  </url>
+  <url>
+    <loc>https://www.gsforesize.online/convert.html?to=pdf</loc>
+  </url>
+  <url>
+    <loc>https://www.gsforesize.online/convert.html?to=jpg</loc>
+  </url>
+  <url>
+    <loc>https://www.gsforesize.online/convert.html?to=webp</loc>
+  </url>
+  <url>
+    <loc>https://www.gsforesize.online/convert.html?to=gif</loc>
+  </url>
+  <url>
+    <loc>https://www.gsforesize.online/convert.html?to=bmp</loc>
+  </url>
+  <url>
+    <loc>https://www.gsforesize.online/convert.html?to=tiff</loc>
+  </url>
+  <url>
+    <loc>https://www.gsforesize.online/convert.html?to=ico</loc>
+  </url>
+
+  <url>
+    <loc>https://www.gsforesize.online/remove-bg.html</loc>
+  </url>
+</urlset>
